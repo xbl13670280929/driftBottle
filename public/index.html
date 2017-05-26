@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>漂流瓶</title>
+	<link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+
+<div class="bottle-mod">
+	<div class="login-item-box">
+		<div class="item-yes">
+			<a href="./login.html">登录</a>
+			<a href="./register.html">注册</a>
+		</div>
+		<div class="item-no">
+			<a href="javascript:void(0)" class="login-out">退出</a>
+		</div>
+	</div>
+	<div class="bottle-inter">
+		<div class="find-box"></div>
+	</div>
+	<div class="bot-tools">
+		<a href="javascript:void(0)" class="tool-item tool-item-my">我的瓶子</a>
+		<a href="javascript:void(0)" class="tool-item tool-item-set">扔瓶子</a>
+		<a href="javascript:void(0)" class="tool-item tool-item-get">捞瓶子</a>
+	</div>
+	<div class="bot-tool-con">
+		<div class="con-item con-item-my">
+			<div class="con-item-h">
+				<div class="tab-h-box">
+					<a href="javascript:void(0)" class="tab-h-item active">收到的瓶子</a>
+					<a href="javascript:void(0)" class="tab-h-item">扔出去的瓶子</a>
+				</div>
+			</div>
+			<div class="con-item-c">
+				<div class="tab-c-box">
+					<div class="tab-c-item active" id="html-bot-list-others">
+					</div>
+					<div class="tab-c-item" id="html-bot-list-self"></div>
+				</div>
+			</div>
+			<div class="con-item-f">
+				<a href="javascript:void(0)" class="con-btn-close">关闭</a>
+			</div>
+		</div>
+		<div class="con-item con-item-set">
+			<div class="con-item-h">扔瓶子</div>
+			<div class="con-item-c">
+				<div class="msg-line msg-line-type">
+					<label>分类</label>
+					<select class="send-bot-type">
+						<option value="1" selected="selected">普通瓶</option>
+						<option value="2">心情瓶</option>
+						<option value="3">真话瓶</option>
+						<option value="4">提问瓶</option>
+					</select>
+				</div>
+				<div class="msg-line msg-line-title">
+					<label>标题</label>
+					<input type="text" class="send-bot-title">
+				</div>
+				<div class="msg-line msg-line-content">
+					<label>内容</label>
+					<textarea class="send-bot-content"></textarea>
+				</div>
+			</div>
+			<div class="con-item-f">
+				<a href="javascript:void(0)" class="con-btn con-btn-sure">确定</a>
+				<a href="javascript:void(0)" class="con-btn con-btn-close">关闭</a>
+			</div>
+		</div>
+	</div>
+	<div class="bot-detail-box" id="html-bot-detail">
+	</div>
+</div>
+
+<script src="./javascript/jquery.js"></script>
+<script src="./javascript/underscore.js"></script>
+<script src="./javascript/bottleDom.js"></script>
+</body>
+</html>
+<!-- 模板-漂流瓶列表 -->
+<script type="text/template" id="temp-bot-list-self">
+	<%if(list && list.length){%>
+		<% for(var i = 0;i < list.length; i++){%>
+			<% var data = list[i]%>
+			<div class="bot-list-item" data-id="<%=data.bottleId%>">
+				<div class="bot-list-h">
+					<%=data.title%>
+					<span class="bot-lite-time"><%=data.lastTime%></span>
+				</div>
+				<div class="bot-list-c"><%=data.content%></div>
+			</div>
+		<%}%>
+	<%}%>
+</script>
+
+
+<!-- 模板-漂流瓶详情 -->
+<script type="text/template" id="temp-bot-detail">
+	<div class="bot-d-inter" data-id="<%=data.bottleId%>">
+		<div class="bot-d-h">
+			<%=data.title%>
+			<a href="javascript:void(0)" class="bot-d-close">X</a>
+		</div>
+		<div class="bot-d-c">
+			<div class="bot-msg-box">
+				<div class="bot-msg-item">
+					<div class="bot-d-author">
+						<span><%=data.nickName%></span>
+						说:
+					</div>
+					<div class="bot-d-msg">
+						<%=data.content%>
+						<span class="bot-d-time">
+							<%=data.createTime%>
+						</span>
+					</div>
+				</div>
+				<%if(data.msgList && data.msgList.length){%>
+					<% for(var j = 0;j < data.msgList.length; j++){%>
+						<% var dataIn = data.msgList[j]%>
+						<div class="bot-msg-item">
+							<div class="bot-d-author"><span><%=dataIn.nickName%> 说:</span>
+							</div>
+							<div class="bot-d-msg">
+								<%=dataIn.msg%>
+								<span class="bot-d-time">
+									<%=dataIn.time%>
+								</span>
+							</div>
+						</div>
+					<%}%>
+				<%}%>
+			</div>
+			<div class="bot-d-res">回应TA：</div>
+			<div class="bot-d-text">
+				<textarea class="bot-d-textarea"></textarea>
+			</div>
+		</div>
+		<div class="bot-d-f">
+			<a href="javascript:void(0)" class="bot-d-back">扔回海里</a>
+			<a href="javascript:void(0)" class="bot-d-down">厌恶</a>
+			<a href="javascript:void(0)" class="bot-d-send">发送</a>
+		</div>
+	</div>
+</script>
+

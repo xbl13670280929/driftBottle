@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>漂流瓶-登录</title>
+	<link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+
+<div class="register-box">
+	<div class="regi-tip"></div>
+	<div class="regi-line regi-line-user">
+		<label>用户名</label>
+		<input type="text">
+	</div>
+	<div class="regi-line regi-line-password">
+		<label>密码</label>
+		<input type="password">
+	</div>
+	<div class="regi-line regi-line-btn">
+		<label></label>
+		<a href="javascript:void(0)" class="regi-btn">提交</a>
+	</div>
+	<a href="./register.html" class="go-login-btn">没有账号,前往注册</a>
+</div>
+
+<script src="./javascript/jquery.js"></script>
+<script>
+$(".register-box").delegate(".regi-btn", "click", function() {//提交
+	var data = {};
+	data.username = $(".regi-line-user input").val();
+	data.password = $(".regi-line-password input").val();
+	if(data.username === "") {
+		$(".register-box .regi-tip").html("用户名不能为空").addClass("show-tip");
+		return;
+	}else if(data.password === "") {
+		$(".register-box .regi-tip").html("密码不能为空").addClass("show-tip");
+		return;
+	}
+	$(".register-box .regi-tip").html("").removeClass("show-tip");
+
+	//发起提交
+	$.ajax({
+		url: "./user/login",
+		type: "post",
+		data: data,
+		success: function(res) {
+			if(res.rtnCode === "000") {
+				window.confirm("登录成功");
+				window.location.href = "./index.html";
+			}else {
+				alert(res.rtnMsg);
+			}
+		}
+	});
+});
+</script>
+</body>
+</html>

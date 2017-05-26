@@ -1,0 +1,62 @@
+body{ margin: 0; background-color: #F2F2F2; font-size: 13px;}
+.bottle-mod{ position: relative; max-width: 1200px; margin: 0 auto; color: #333;}
+.bottle-mod a{ text-decoration: none; color: #333;}
+.bottle-mod .bottle-inter{ position: relative; width: 1000px; height: 580px; margin: 0 auto; background: url("../images/hai.jpg") top center no-repeat;}
+.bottle-mod .find-box{ position: absolute; top: 0; left: 0; width: 200px; height: 200px;}
+.bottle-mod .bot-tools{ position: absolute; bottom: 24px; width: 100%; text-align: center;}
+.bottle-mod .bot-tools .tool-item{ display: inline-block; vertical-align: middle; color: #333; text-decoration: none; margin: 0 8px;}
+.bottle-mod .bot-tools .tool-item:hover{ color: #8841AB;}
+.bottle-mod .bot-tool-con{ position: absolute; top: 0; left: 0; width: 100%;}
+.bottle-mod .con-item{ position: absolute; top: 30px; left: 50%; display: none; width: 500px; margin-left: -250px; border: 1px solid #CCC; box-shadow: 0 0 12px #BFC5D6;}
+.bottle-mod .con-item.show{ display: block;}
+.bottle-mod .con-item .con-item-h{ background-color: #BFC5D6; border-bottom: 1px solid #BFC5D6; padding: 0 24px; line-height: 24px;}
+.bottle-mod .con-item .con-item-c{ height: 300px; overflow-x: hidden; overflow-y: auto; background-color: #FFF;}
+.bottle-mod .con-item.con-item-set .con-item-c{ height: auto; text-align: left;}
+.bottle-mod .con-item.con-item-set .msg-line{ padding: 4px 0;}
+.bottle-mod .con-item.con-item-set label{ display: inline-block; width: 72px; vertical-align: top; text-align: right;}
+.bottle-mod .con-item.con-item-set textarea{ width: 80%; height: 100px;}
+.bottle-mod .con-item .con-item-f{ padding: 4px 24px; text-align: center; background-color: #BFC5D6; border-top: 1px solid #BFC5D6;}
+.bottle-mod .con-item .con-item-f a{ text-decoration: none;}
+.bottle-mod .tab-h-box{ text-align: center; font-size: 0;}
+.bottle-mod .tab-h-box .tab-h-item{ display: inline-block; vertical-align: top; background-color: #CADAF3; font-size: 12px; padding: 0 12px; border: 1px solid #485463;}
+.bottle-mod .tab-h-box .tab-h-item.active{ background-color: #485463; color: #FFF;}
+.bottle-mod .tab-c-box .tab-c-item{ display: none;}
+.bottle-mod .tab-c-box .tab-c-item.active{ display: block;}
+.bottle-mod .bot-list-item{ padding: 0 12px; border-bottom: 1px solid #ededed; cursor: pointer;}
+.bottle-mod .bot-list-item .bot-list-h{ position: relative; font-size: 16px; line-height: 24px;}
+.bottle-mod .bot-list-item .bot-lite-time{ position: absolute; top: 6px; right: 12px; color: #666; font-size: 12px; line-height: 14px;}
+.bottle-mod .bot-list-item .bot-list-c{ color: #999; font-size: 12px;}
+
+/* 主页登录按钮 */
+.bottle-mod .login-item-box{ position: absolute; top: 8px; right: 0; white-space: nowrap;}
+.bottle-mod .login-item-box a{ color: #8841AB;}
+.bottle-mod .login-item-box .item-no{ display: none;}
+
+/* 漂流瓶详情窗口 */
+.bottle-mod .bot-detail-box{ position: absolute; top: 20px; left: 50%; z-index: 88; display: none; width: 500px; margin-left: -250px; background-color: #FFF;}
+.bottle-mod .bot-detail-box.show{ display: block;}
+.bottle-mod .bot-detail-box .bot-d-h{ line-height: 32px; font-size: 18px; padding: 0 12px; background-color: #D5D8E2;}
+.bottle-mod .bot-detail-box .bot-d-close{ position: absolute; top: 9px; right: 12px; color: #999; font-size: 14px; line-height: 14px;}
+.bottle-mod .bot-detail-box .bot-d-c{ padding: 0 12px;}
+.bottle-mod .bot-detail-box .bot-d-author{ padding: 4px 0; font-size: 13px;}
+.bottle-mod .bot-detail-box .bot-d-msg{ position: relative; background-color: #FFF; border: 1px solid #CCC; padding: 8px 8px 24px; font-size: 13px; line-height: 24px;}
+.bottle-mod .bot-detail-box .bot-d-msg .bot-d-time{ position: absolute; bottom: 4px; right: 12px; line-height: 16px;}
+.bottle-mod .bot-detail-box .bot-d-res{ font-size: 13px; padding: 8px 0;}
+.bottle-mod .bot-detail-box .bot-d-text{ text-align: center;}
+.bottle-mod .bot-detail-box .bot-d-textarea{ width: 98%; height: 50px; text-align: left;}
+.bottle-mod .bot-detail-box .bot-d-f{ background-color: #D5D8E2; text-align: center; padding: 8px 0;}
+.bottle-mod .bot-detail-box .bot-d-f a{ display: inline-block; vertical-align: top; padding: 0 12px; line-height: 18px; background-color: #C2C8F8; color: #44496D; border-radius: 4px; font-size: 13px;}
+.bottle-mod .bot-detail-box .bot-d-f a.bot-d-send{ background-color: #8EABD0; color: #FFF;}
+
+/* 立体效果 */
+.bottle-mod{ perspective: 800; -webkit-perspective: 800;}
+.bottle-mod .find-box{ transform-style: preserve-3d; transform: translate3d(0px, 0px, 0px);}
+
+/* 注册部分 */
+.register-box{ position: relative; width: 800px; margin: 30px auto 0; padding: 30px 0; border: 1px solid #CCC; background-color: #FFF;}
+.register-box .regi-tip{ min-height: 24px; line-height: 24px; margin: 0 20px; padding: 0 24px; border: 1px solid #8841AB; color: #8841AB; visibility: hidden;}
+.register-box .regi-tip.show-tip{ visibility: visible;}
+.register-box .regi-line{ padding: 4px 12px;}
+.register-box .regi-line label{ display: inline-block; min-width: 72px; min-height: 10px; padding-right: 8px; vertical-align: middle; text-align: right;}
+.register-box .regi-btn{ display: inline-block; padding: 0 12px; line-height: 24px; border: 1px solid #CCC; text-decoration: none; color: #333;}
+.register-box .go-login-btn{ position: absolute; bottom: 24px; right: 24px; text-decoration: none; color: #8841AB;}
